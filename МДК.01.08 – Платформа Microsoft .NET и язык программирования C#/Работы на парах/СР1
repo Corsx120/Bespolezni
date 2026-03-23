@@ -1,0 +1,63 @@
+Задача 3 Конвертер валют
+
+public static class CurrencyConverter
+{
+    private static double usdToRubRate;
+
+    public static void SetRate(double rate)
+    {
+        usdToRubRate = rate;
+    }
+
+    public static double ConvertUsdToRub(double usd)
+    {
+        return usd * usdToRubRate;
+    }
+
+    public static double ConvertRubToUsd(double rub)
+    {
+        return rub / usdToRubRate;
+    }
+}
+// Установка курса доллара к рублю
+CurrencyConverter.SetRate(90.5);
+
+// Конвертация из долларов в рубли
+double usdAmount = 100;
+double rubAmount = CurrencyConverter.ConvertUsdToRub(usdAmount);
+Console.WriteLine($"{usdAmount} USD = {rubAmount} RUB"); // Вывод: 100 USD = 9050 RUB
+
+// Конвертация из рублей в доллары
+double rubAmountToConvert = 5000;
+double usdResult = CurrencyConverter.ConvertRubToUsd(rubAmountToConvert);
+Console.WriteLine($"{rubAmountToConvert} RUB = {usdResult} USD"); // Вывод: 5000 RUB = 55.248618784530386 USD
+
+Задача 4 Математическая константа
+
+
+public class Circle
+{
+    public const double PI = 3.14159; // Или static readonly double PI = 3.14159;
+    public double Radius { get; set; }
+
+    public Circle(double radius)
+    {
+        Radius = radius;
+    }
+
+    public double GetArea()
+    {
+        return PI * Radius * Radius;
+    }
+}
+
+// Создание двух кругов с разными радиусами
+Circle circle1 = new Circle(5);
+Circle circle2 = new Circle(10);
+
+// Получение и вывод площадей кругов
+double area1 = circle1.GetArea();
+double area2 = circle2.GetArea();
+
+Console.WriteLine($"Площадь круга с радиусом {circle1.Radius} = {area1}"); // Вывод: Площадь круга с радиусом 5 = 78.53975
+Console.WriteLine($"Площадь круга с радиусом {circle2.Radius} = {area2}"); // Вывод: Площадь круга с радиусом 10 = 314.159
